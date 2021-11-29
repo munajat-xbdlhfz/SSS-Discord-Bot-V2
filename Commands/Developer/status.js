@@ -5,13 +5,18 @@ require("../../Events/Client/ready")
 module.exports = {
     name: "status",
     description: "Displays the status of the client and database connection.",
-    permission: "ADMINISTRATOR",
+    permission: "BAN_MEMBERS",
     /**
      * 
      * @param {CommandInteraction} interaction 
      * @param {Client} client
      */
     async execute(interaction, client) {
+        const { member } = interaction;
+
+        if (member.id != process.env.DEV_ID)
+        return interaction.reply({embeds: [new MessageEmbed().setColor("RED").setDescription(`⛔ Sorry, this command is for developer only.`)]})
+
         const Response = new MessageEmbed()
         .setColor("AQUA")
         .setDescription(

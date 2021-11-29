@@ -5,7 +5,7 @@ const actions = ["give", "remove"];
 module.exports = {
     name: "role",
     description: "Add a new role for user.",
-    permission: "MANAGE_ROLES",
+    permission: "BAN_MEMBERS",
     options: [
         {
             name: "action",
