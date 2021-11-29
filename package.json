@@ -1,0 +1,26 @@
+{
+  "name": "sss_discord_bot_v2",
+  "version": "1.0.0",
+  "description": "Rise of Monster Slayer(S.S.S) Discord Bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DARKZERO",
+  "license": "ISC",
+  "dependencies": {
+    "@distube/spotify": "^1.0.0",
+    "ascii-table": "^0.0.9",
+    "canvas": "^2.8.0",
+    "discord.js": "^13.3.1",
+    "distube": "^3.0.3",
+    "dotenv": "^10.0.0",
+    "ffmpeg-static": "^4.4.0",
+    "glob": "^7.2.0",
+    "libsodium-wrappers": "^0.7.9",
+    "mongoose": "^6.0.13",
+    "node-cron": "^3.0.0",
+    "yt-search": "^2.10.2",
+    "ytdl-core": "^4.9.1"
+  }
+}
