@@ -1,6 +1,10 @@
 {
   "name": "sss_discord_bot_v2",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.13.0",
+    "npm" : "7.24.1"
+  },
   "description": "Rise of Monster Slayer(S.S.S) Discord Bot",
   "main": "main.js",
   "scripts": {
