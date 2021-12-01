@@ -30,8 +30,8 @@ module.exports = {
 
         const Goodbye = new MessageEmbed()
         .setColor("RED")
-        .setAuthor(user.tag, user.avatarURL({dynamic: true, size: 512}))
-        .setThumbnail(user.avatarURL({dynamic: true, size: 512}))
+        .setAuthor(user.tag, user.displayAvatarURL())
+        .setThumbnail(user.displayAvatarURL())
         .setDescription(`**${member.displayName}** has left the community.`)
         .addField("Server Member Since", `${joined} - <t:${parseInt(member.joinedTimestamp / 1000)}:R>`)
         .addField("Latest Member Count", `👥 **${guild.memberCount}** members in server.`)
