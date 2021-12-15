@@ -16,24 +16,12 @@ module.exports = {
             token: process.env.GOODBYE_TOKEN
         });
         
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June", 
-            "July", "August", "September", "October", "November", "December"
-        ];
-
-        // Member join date
-        var dJoined = new Date(member.joinedTimestamp);
-        var month = monthNames[dJoined.getMonth()];
-        var hours = dJoined.getHours();
-        var minutes = "0" + dJoined.getMinutes();
-        var joined = `📅 ${dJoined.getDate()} ${month} ${dJoined.getFullYear()}, ${hours}:${minutes.substr(-2)}`;
-
         const Goodbye = new MessageEmbed()
         .setColor("RED")
         .setAuthor(user.tag, user.displayAvatarURL())
         .setThumbnail(user.displayAvatarURL())
         .setDescription(`**${member.displayName}** has left the community.`)
-        .addField("Server Member Since", `${joined} - <t:${parseInt(member.joinedTimestamp / 1000)}:R>`)
+        .addField("Server Member Since", `<t:${parseInt(member.joinedTimestamp / 1000)}:F>`)
         .addField("Latest Member Count", `👥 **${guild.memberCount}** members in server.`)
         .setFooter(`User ID: ${user.id}`)
 
