@@ -21,7 +21,7 @@ module.exports = {
         .setAuthor(user.tag, user.displayAvatarURL())
         .setThumbnail(user.displayAvatarURL())
         .setDescription(`**${member.displayName}** has left the community.`)
-        .addField("Server Member Since", `<t:${parseInt(member.joinedTimestamp / 1000)}:F>`)
+        .addField("Server Member Since", `📅 <t:${parseInt(member.joinedTimestamp / 1000)}:F>`)
         .addField("Latest Member Count", `👥 **${guild.memberCount}** members in server.`)
         .setFooter(`User ID: ${user.id}`)
 
