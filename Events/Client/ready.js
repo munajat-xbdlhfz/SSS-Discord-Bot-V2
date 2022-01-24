@@ -22,7 +22,7 @@ module.exports = {
             console.log(err)
         })
 
-        cron.schedule('0 0 24 1-12 *', () => {
+        cron.schedule('0 0 20 1-12 *', () => {
             client.users.cache.get(process.env.DEV_ID).send({embeds: [
                 new MessageEmbed()
                 .setColor("RED")
