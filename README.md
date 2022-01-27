@@ -17,6 +17,7 @@ npm i libsodium-wrappers
 npm i ffmpeg-static
 npm i distube
 npm i @distube/spotify
+npm i sourcebin
 ```
 
 ## Create .env File

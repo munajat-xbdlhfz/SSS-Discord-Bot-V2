@@ -13,6 +13,7 @@ module.exports = {
         console.log(`S.S.S Discord Bot is Online! `)
         client.user.setActivity("S.S.S Community", {type: "WATCHING"})
 
+        if (!database) return;
         mongoose.connect(database, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -31,5 +32,7 @@ module.exports = {
                 .addField("Note:", "You have used your entire allocation of 550 free dyno hours. Please change heroku account!")
             ]})
         })
+
+        require("../../Systems/ChatFilters")(client);
     }
 }

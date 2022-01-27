@@ -12,7 +12,7 @@ module.exports = {
 
         const Response = new MessageEmbed()
         .setColor("AQUA")
-        .setAuthor(`${Target.displayName} Information`, Target.user.avatarURL({dynamic: true, size: 512}))
+        .setAuthor({ name: `${Target.displayName} Information`, iconURL: Target.user.avatarURL({dynamic: true, size: 512}) })
         .setThumbnail(Target.user.avatarURL({dynamic: true, size: 512}))
         .addField("User ID", `${Target.user.id}`)
         .addField("Roles", `${Target.roles.cache.map(r => r).join(" ").replace("@everyone", "") || "None"}`)

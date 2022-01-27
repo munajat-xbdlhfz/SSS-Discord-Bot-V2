@@ -55,7 +55,7 @@ module.exports = {
 
             const Thankyou = new MessageEmbed()
             .setColor("#FF69B4")
-            .setAuthor(`${newMember.user.username}`, newMember.displayAvatarURL())
+            .setAuthor({ name: `${newMember.user.username}`, iconURL: newMember.displayAvatarURL() })
             .setDescription(
                 `Hey guys, ${newMember} just boosted the server!\n`+
                 `Thank you for boosting **${guild.name}** server! Your support is much appreciated.`

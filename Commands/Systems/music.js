@@ -52,7 +52,7 @@ module.exports = {
         try {
             switch (options.getSubcommand()) {
                 case "play": {
-                    client.distube.playVoiceChannel( VoiceChannel, options.getString("query"), { textChannel: channel, member: member } );
+                    client.distube.play( VoiceChannel, options.getString("query"), { textChannel: channel, member: member } );
                     return interaction.reply({content: "🎵 Request received."});
                 }
                 case "volume": {
@@ -105,8 +105,11 @@ module.exports = {
                         case "queue":
                         return interaction.reply({embeds: [new MessageEmbed()
                         .setColor("PURPLE")
+                        .setTimestamp()
+                        .setFooter({ text: `${client.user.username} Music` })
+                        .setAuthor({ name: "Music Playlist" })
                         .setDescription(`${queue.songs.map(
-                            (song, id) => `\n**${id + 1}**. ${song.name.replace(/[*]/g, ' ')} - \`${song.formattedDuration}\``)}`    
+                            (song, id) => `\n**${id + 1}**.  [${song.name}](${song.url}) (${song.formattedDuration})`)}`
                         )]})
                     }
                     return;
@@ -116,6 +119,8 @@ module.exports = {
             const errorEmbed = new MessageEmbed()
             .setColor("RED")
             .setDescription(`⛔ Alert: ${e}`)
+            .setTimestamp()
+            .setFooter({ text: `${client.user.username} Music` })
             return interaction.reply({embeds: [errorEmbed]});
         }
     }

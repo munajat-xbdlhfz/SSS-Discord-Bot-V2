@@ -64,7 +64,7 @@ module.exports = {
         // Set welcome embed
         const Welcome = new MessageEmbed()
         .setColor("AQUA")
-        .setAuthor(`WELCOME TO ${guild.name.toUpperCase()}`, newMember.displayAvatarURL())
+        .setAuthor({ name: `WELCOME TO ${guild.name.toUpperCase()}`, iconURL: newMember.displayAvatarURL() })
         .setDescription(
             `Selamat datang ${newMember} di **${guild.name}** Discord Server!\n`+
             `Pastikan untuk memeriksa channel yang di tandai di bawah!\n`+
@@ -77,7 +77,7 @@ module.exports = {
         )
         .setImage(`attachment://welcome.png`)
         .setTimestamp()
-        .setFooter(`Member #${guild.memberCount}`, guild.iconURL());
+        .setFooter({ text: `Member #${guild.memberCount}`, iconURL: guild.iconURL() });
 
         webhook.send({content: `Welcome ${newMember} **(${newMember.user.tag})**,`, embeds: [Welcome], files: [attachment]}).catch((err) => console.log(err));
     }

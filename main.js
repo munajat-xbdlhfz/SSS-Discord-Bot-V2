@@ -7,6 +7,8 @@ const PG = promisify(glob)
 const Ascii = require("ascii-table")
 
 client.commands = new Collection();
+client.filters = new Collection();
+client.filtersLog = new Collection();
 
 const { DisTube } = require("distube");
 const { SpotifyPlugin } = require("@distube/spotify");
