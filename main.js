@@ -1,5 +1,6 @@
 const { Client, Collection } = require('discord.js')
 const client = new Client({intents: 32767})
+client.options.http.api = "https://discord.com/api"
 
 const { promisify } = require("util")
 const { glob } = require("glob")
@@ -7,23 +8,32 @@ const PG = promisify(glob)
 const Ascii = require("ascii-table")
 
 client.commands = new Collection();
+client.buttons = new Collection();
 client.filters = new Collection();
 client.filtersLog = new Collection();
 
 const { DisTube } = require("distube");
 const { SpotifyPlugin } = require("@distube/spotify");
+const { SoundCloudPlugin } = require("@distube/soundcloud");
 
 client.distube = new DisTube(client, {
+    youtubeDL: false,
+    leaveOnEmpty: true,
+    leaveOnStop: false,
+    leaveOnFinish: false,
     emitNewSongOnly: true,
-    leaveOnFinish: true,
     emitAddSongWhenCreatingQueue: false,
-    plugins: [new SpotifyPlugin()]
+    plugins: [
+        new SoundCloudPlugin(),
+        new SpotifyPlugin({ emitEventsAfterFetching: true })
+    ]
 });
 module.exports = client;
 
-["Events", "Commands"].forEach(handler => {
+client.distube.setMaxListeners(0);
+
+["Events", "Commands", "Buttons"].forEach(handler => {
     require(`./Structures/Handlers/${handler}`)(client, PG, Ascii);
 });
 
-// Login Discord Bot
 client.login(process.env.BOT_TOKEN)

@@ -1,5 +1,5 @@
 # S.S.S DISCORD BOT
-This is a discord bot for Rise of Monster Slayer (S.S.S). This bot is to manage S.S.S Server, a Monster Hunter Community from Indonesia.
+Discord bot for Rise of Monster Slayer (S.S.S), a Monster Hunter Community from Indonesia. This bot is using slash commands and discord music bot. Purpose of this bot is to manage S.S.S Discord Server.
 
 ## Install Dependencies
 This bot is using discord.js v13 and requires Node 16.6 or higher to use.
