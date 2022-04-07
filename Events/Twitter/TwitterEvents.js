@@ -11,9 +11,9 @@ const twitter = new Twitter({
     access_token_secret: process.env.TWITTER_TOKEN_SECRET
 });
 
-twitter.stream('statuses/user_timeline', { follow: '306490355' }, function(stream) {
-    stream.on('tweet', function(tweet) {
-        twitterPost(tweet);
+twitter.stream('statuses/filter', { follow: '306490355' }, function(stream) {
+    stream.on('data', function(tweet) {
+        if (!tweet.retweeted_status) return twitterPost(tweet);
     });
 
     stream.on('error', function(error) {
