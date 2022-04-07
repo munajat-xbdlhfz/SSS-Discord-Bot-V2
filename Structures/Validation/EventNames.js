@@ -63,6 +63,7 @@ module.exports = {
         "threadMembersUpdate",
         "threadMemberUpdate",
         "threadUpdate",
+        "twitterEvents",
         "typingStart",
         'userUpdate',
         "voiceStateUpdate",

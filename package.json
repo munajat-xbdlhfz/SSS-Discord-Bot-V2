@@ -29,6 +29,7 @@
     "mongoose": "^6.2.7",
     "node-cron": "^3.0.0",
     "sourcebin": "^4.3.5",
+    "twitter": "^1.7.1",
     "yt-search": "^2.10.3",
     "ytdl-core": "^4.11.0"
   }
