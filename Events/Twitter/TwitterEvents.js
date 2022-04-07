@@ -13,7 +13,7 @@ const twitter = new Twitter({
 
 twitter.stream('statuses/filter', { follow: '306490355' }, function(stream) {
     stream.on('data', function(tweet) {
-        if (!tweet.retweeted_status) return twitterPost(tweet);
+        if (!tweet.retweeted_status & !tweet.in_reply_to_user_id) return twitterPost(tweet);
     });
 
     stream.on('error', function(error) {
