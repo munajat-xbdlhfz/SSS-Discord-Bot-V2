@@ -11,14 +11,20 @@ const twitter = new Twitter({
     access_token_secret: process.env.TWITTER_TOKEN_SECRET
 });
 
-twitter.stream('statuses/filter', { follow: '306490355' }, function(stream) {
-    stream.on('data', function(tweet) {
-        if (!tweet.retweeted_status & !tweet.in_reply_to_user_id) return twitterPost(tweet);
-    });
-
-    stream.on('error', function(error) {
-        console.log(error);
-    })
+twitter.stream('statuses/filter', { follow: '306490355' }, async function(stream) {
+    try {
+        await stream.on('data', function(tweet) {
+            if (!tweet.retweeted_status & !tweet.in_reply_to_user_id) return twitterPost(tweet);
+            
+            return
+        });
+    
+        await stream.on('error', function(error) {
+            return console.log(error);
+        })
+    } catch (err) {
+        console.log(err)
+    }
 })
 
 function twitterPost(tweet) {
@@ -51,5 +57,5 @@ function twitterPost(tweet) {
 
     if (!!media) for (var j = 0; j < media.length; j++) post.setImage(media[j].media_url)
 
-    webhook.send({embeds: [post]}).catch((err) => console.log(err));
+    return webhook.send({embeds: [post]}).catch((err) => console.log(err));
 }

@@ -21,6 +21,7 @@ npm i @distube/yt-dlp
 npm i @distube/spotify
 npm i @distube/soundcloud
 npm i sourcebin
+npm i twitter
 ```
 
 ## Create .env File
@@ -34,7 +35,7 @@ DEV_ID = your discord id
 GUILD_ID = your guild/server id
 
 WELCOME_ID = your welcome webhook id
-WELCOME_TOKEN = yourwelcome webhook token
+WELCOME_TOKEN = your welcome webhook token
 
 GOODBYE_ID = your goodbye webhook id
 GOODBYE_TOKEN = your goodbye webhook token
