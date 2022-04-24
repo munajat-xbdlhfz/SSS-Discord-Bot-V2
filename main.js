@@ -13,6 +13,7 @@ client.filters = new Collection();
 client.filtersLog = new Collection();
 
 const { DisTube } = require("distube");
+const { YtDlpPlugin } = require("@distube/yt-dlp")
 const { SpotifyPlugin } = require("@distube/spotify");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
 
@@ -24,6 +25,7 @@ client.distube = new DisTube(client, {
     emitNewSongOnly: true,
     emitAddSongWhenCreatingQueue: false,
     plugins: [
+        new YtDlpPlugin(),
         new SoundCloudPlugin(),
         new SpotifyPlugin({ emitEventsAfterFetching: true })
     ]
