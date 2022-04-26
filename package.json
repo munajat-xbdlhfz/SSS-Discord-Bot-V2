@@ -8,6 +8,7 @@
   "description": "Rise of Monster Slayer(S.S.S) Discord Bot",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "DARKZERO",
